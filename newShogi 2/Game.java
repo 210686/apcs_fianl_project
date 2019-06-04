@@ -2,9 +2,19 @@ import java.awt.*;
 import javax.swing.*;
 public class Game {
     private GUI gui;
+    private static JFrame f;
+    private static Game cb;
     public Game() {
         gui = new GUI();
     }
+
+    public Game(Koma[][] oldBoard) {
+        f.getContentPane().revalidate();
+        gui = new GUI(oldBoard);
+        f.add(gui.getGui());
+        f.repaint();
+    }
+
     public JComponent getGameGui(){
         return gui.getGui();
     }
@@ -14,10 +24,9 @@ public class Game {
             {
                 @Override
                 public void run() {
-                    Game cb = new Game();
-                    JFrame f = new JFrame("Shogi");
+                    cb = new Game();
+                    f = new JFrame("Shogi");
                     f.add(cb.getGameGui());
-                    
                     f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     f.setLocationByPlatform(true);
                     f.pack();

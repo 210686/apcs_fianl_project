@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -8,11 +10,20 @@ public class GUI{
     private JPanel gui = new JPanel(new BorderLayout(3, 3));
     private JButton[][] boardSquares = new JButton[9][9];
     private JPanel board;
-    private JLabel message = new JLabel("Player's Turn");
+    private final JLabel message = new JLabel("Player");
     private JButton b1;
     private BoardGraphics boardGui = new BoardGraphics();
+
+    private int count = 0;
     public GUI() {
         System.out.print("\f");
+        boardGui.setInitialBoard();
+        Gui();
+    }
+
+    public GUI(Koma[][] oldBoard){
+        //System.out.print("\f");
+        boardGui.changeBoard(oldBoard);
         Gui();
     }
 
@@ -23,20 +34,17 @@ public class GUI{
         gui.add(tools, BorderLayout.PAGE_START);
         tools.add(b1 = new JButton("New"));
         tools.addSeparator();
-        
-        b1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Popup newPopup = new Popup("Resign?");
-                if(newPopup.getResult()){
-                    boardGui = new BoardGraphics();
-                }
-                newPopup.disposeWindow();
-            }
-        });
-        
-        tools.add(message);
 
+        b1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    Popup newPopup = new Popup("Resign?");
+                    if(newPopup.getResult()){
+                        BoardGraphics b = new BoardGraphics();
+                        b.setInitialBoard();
+                        new Game(b.getBoard());
+                    }
+                }
+            });
 
         board = new JPanel(new GridLayout(0, 10));
         board.setBorder(new LineBorder(Color.BLACK));
@@ -45,28 +53,52 @@ public class GUI{
         printBoardSquares();
     }
 
-    public JComponent getGui(){
-        return gui;
-    }
-    
     public void printBoardSquares(){
+        ActionListener listener = new ActionListener(){
+                int x = -1, y = -1;
+                boolean moved = false;
+                public void actionPerformed(ActionEvent a){
+                    Object source = a.getSource();
+                    for (int i = 0; i < 9; i++) {
+                        for (int j = 0; j < 9; j++) { 
+                            if (source == boardSquares[i][j]) {
+                                if(x != -1){
+                                    int[][] newMoveSet = boardGui.getMoves(y, x);
+                                    try{
+                                        for(int k = 0; k < newMoveSet[0].length; k++){
+                                            if(x - j == newMoveSet[0][k] && y - i == newMoveSet[1][k]){
+                                                boardGui.changeLocation(y, x, y-i, x-j);
+                                                new Game(boardGui.getBoard());
+                                                break;
+                                            }
+                                        }
+                                    } catch(ArrayIndexOutOfBoundsException e){
+                                        //System.out.print("doesnt contain anything lol ");
+                                    }
+                                }
+                                y = i;
+                                x = j;
+                                System.out.println(x + " " + y);
+                            }
+                        }
+                    }
+                }
+            };
+
         Insets buttonMargin = new Insets(0,0,0,0);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 JButton b = new JButton();
                 b.setMargin(buttonMargin);
-
                 ImageIcon icon = new ImageIcon();
                 icon = boardGui.getImage(i,j);
                 b.setIcon(icon);
                 boardSquares[j][i] = b;
             }
         }
-
         board.add(new JLabel(""));
         for (int i = 0; i < 9; i++) {
-            board.add(
-                new JLabel(String.valueOf(i + 1), SwingConstants.CENTER));
+            board.add(new JLabel(String.valueOf(i + 1), SwingConstants.CENTER));
         }
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -92,9 +124,15 @@ public class GUI{
                                 SwingConstants.CENTER));}
 
                     default:
+                    boardSquares[i][j].addActionListener(listener);
                     board.add(boardSquares[j][i]);
                 }
             }
         }
+    }
+    
+    public JComponent getGui(){
+        System.out.println("already returned");
+        return gui;
     }
 }

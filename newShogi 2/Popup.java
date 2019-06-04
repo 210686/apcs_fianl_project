@@ -6,11 +6,11 @@ public class Popup{
     private JFrame f;
     private JButton b1, b2;
     public Popup(String str){
+        f = new JFrame(str);
         Runnable r = new Runnable()
             {
                 @Override
                 public void run() {
-                    f = new JFrame(str);
                     f.setLayout(null);
 
                     b1 = new JButton("Yes");
@@ -24,14 +24,14 @@ public class Popup{
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             isYes = true;
-                            f.setVisible(false);
+                            disposeWindow();
                         }
                     });
                     b2.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             isYes = false;
-                            f.setVisible(false);
+                            disposeWindow();
                         }
                     });
                     

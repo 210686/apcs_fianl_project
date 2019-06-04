@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.target=Koma
+comment0.target=Fu
 comment1.params=
 comment1.target=int[][]\ getMoveSet()
 comment2.params=
@@ -8,4 +8,6 @@ comment3.params=
 comment3.target=int[][]\ getMoveSet2()
 comment4.params=
 comment4.target=javax.swing.ImageIcon\ getKoma()
-numComments=5
+comment5.params=order
+comment5.target=Fu(int)
+numComments=6
