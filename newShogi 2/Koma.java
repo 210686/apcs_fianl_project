@@ -1,6 +1,5 @@
-public class Koma{
-    private int[][] board;
-    public Koma(int[][] board){
-        this.board = board;
-    }
+import javax.swing.*;
+public interface Koma{
+    int[][] getMoveSet();
+    ImageIcon getKoma();
 }
