@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=BoardGraphics
+comment1.params=
+comment1.target=BoardGraphics()
+comment2.params=i\ j
+comment2.target=javax.swing.ImageIcon\ getImage(int,\ int)
+comment3.params=i\ j
+comment3.target=int[][]\ getMoves(int,\ int)
+comment4.params=i\ j\ x\ y
+comment4.target=void\ changeLocation(int,\ int,\ int,\ int)
+numComments=5

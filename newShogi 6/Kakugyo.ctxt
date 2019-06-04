@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Kakugyo
+comment1.params=
+comment1.target=int[][]\ getMoveSet()
+comment2.params=
+comment2.target=int[][]\ getMoveSet1()
+comment3.params=
+comment3.target=int[][]\ getMoveSet2()
+comment4.params=
+comment4.target=javax.swing.ImageIcon\ getKoma()
+comment5.params=order
+comment5.target=Kakugyo(int)
+numComments=6
