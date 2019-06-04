@@ -1,4 +1,7 @@
+import javax.swing.*;
 public interface Koma{
-    int[][] getMove();
-    int[][] doMove();
+    int[][] getMoveSet();
+    int getOrder();
+    String getName();
+    ImageIcon getKoma();
 }
