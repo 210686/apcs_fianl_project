@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=BoardGraphics
+comment1.params=
+comment1.target=BoardGraphics()
+comment2.params=i\ j
+comment2.target=javax.swing.ImageIcon\ getImage(int,\ int)
+comment3.params=i\ j
+comment3.target=int[][]\ getMoves(int,\ int)
+comment4.params=x\ y\ newX\ newY
+comment4.target=void\ changeLocation(int,\ int,\ int,\ int)
+comment5.params=
+comment5.target=void\ setInitialBoard()
+comment6.params=newBoard
+comment6.target=void\ changeBoard(Koma[][])
+comment7.params=
+comment7.target=Koma[][]\ getBoard()
+numComments=8
