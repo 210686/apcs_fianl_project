@@ -4,10 +4,24 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 public class Keima implements Koma{
-    private int[][] moveSet;
+    private int[][] moveSet = new int[2][2];
     private int order;
     
     public int[][] getMoveSet(){
+        if(order == 1){
+            moveSet[0][0] = -1;
+            moveSet[1][0] = 2;
+            
+            moveSet[0][1] = 1;
+            moveSet[1][1] = 2;
+        }
+        else{
+            moveSet[0][0] = -1;
+            moveSet[1][0] = -2;
+            
+            moveSet[0][1] = 1;
+            moveSet[1][1] = -2;
+        }
         return moveSet;
     }
     
@@ -28,5 +42,11 @@ public class Keima implements Koma{
     
     public Keima(int order){
         this.order = order;
+    }
+    public int getOrder(){
+        return order;
+    }
+    public String getName(){
+        return "桂";
     }
 }
