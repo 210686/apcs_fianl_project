@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Shogi
+comment1.params=p1\ p2
+comment1.target=Shogi(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=void\ startGame()
+comment3.params=
+comment3.target=GameInfo\ info()
+numComments=4

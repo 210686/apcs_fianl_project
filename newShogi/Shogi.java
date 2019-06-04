@@ -4,6 +4,10 @@ public class Shogi{
     public Shogi(String p1, String p2){
         this.p1 = p1;
         this.p2 = p2;
+        startGame();
+    }
+    public void startGame(){
+        
     }
     public GameInfo info(){
         return new GameInfo(p1, p2, winner);

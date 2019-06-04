@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=GUI
+comment1.params=
+comment1.target=GUI()
+comment2.params=
+comment2.target=void\ Gui()
+comment3.params=icon
+comment3.target=javax.swing.ImageIcon\ getImage(javax.swing.ImageIcon)
+comment4.params=
+comment4.target=javax.swing.JComponent\ getGui()
+numComments=5
