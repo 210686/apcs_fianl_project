@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=BoardGraphics
+comment1.params=
+comment1.target=BoardGraphics()
+comment2.params=board
+comment2.target=BoardGraphics(Koma[][])
+comment3.params=
+comment3.target=Koma[][]\ getBoard()
+numComments=4
