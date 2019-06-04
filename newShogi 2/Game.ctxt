@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Game
+comment1.params=
+comment1.target=Game()
+comment2.params=
+comment2.target=void\ initializeGui()
+comment3.params=
+comment3.target=javax.swing.JComponent\ getboard()
+comment4.params=
+comment4.target=javax.swing.JComponent\ getGui()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment6.params=
+comment6.target=void\ run()
+numComments=7
